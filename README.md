@@ -30,6 +30,11 @@ DNI: 35821816
 Correo eléctrico: alvarobenicio765@gmail.com
 Link (URL) GitHub: https://github.com/alvarobenicio
 
+Nombre: Walter Rodrigo
+Apellido: Rojas
+DNI: 34587991
+Correo eléctrico: rodrigo.rojas2.rr@gmail.com
+Link (URL) GitHub: https://github.com/Rodri1989
 
 
 
