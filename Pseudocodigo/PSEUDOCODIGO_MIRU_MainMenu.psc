@@ -8,29 +8,29 @@ Algoritmo PSEUDOCODIGO_EVIDENCIA2
 	Repetir
         Limpiar Pantalla
         Escribir "==============================="
-        Escribir "       Inicio de Sesión"       
+        Escribir "       Inicio de SesiÃ³n"       
         Escribir "==============================="
         
         Escribir "Usuario: "
         Leer usuario
-        Escribir "Contraseña: "
+        Escribir "ContraseÃ±a: "
         Leer Clave
-		// Validación del usuario y contraseña (simulación)
+		// ValidaciÃ³n del usuario y contraseÃ±a (simulaciÃ³n)
         Si usuario = "usuario1" y Clave = "contrasena123" Entonces
             Limpiar Pantalla
             Escribir "==============================="
-            Escribir "   Inicio de Sesión Exitoso"   
+            Escribir "   Inicio de SesiÃ³n Exitoso"   
             Escribir "==============================="
-            // Aquí iría la lógica después de un inicio de sesión exitoso
+            // AquÃ­ irÃ­a la lÃ³gica despuÃ©s de un inicio de sesiÃ³n exitoso
             Esperar 2 segundos // Esperar 2 segundos antes de continuar
-            // Se puede agregar un bucle o menú principal después del login aquí
-            // Iniciar menú principal
+            // Se puede agregar un bucle o menÃº principal despuÃ©s del login aquÃ­
+            // Iniciar menÃº principal
             intentos <- 3 // Romper el bucle de login exitoso
         Sino
 			
             Limpiar Pantalla
             Escribir "=========================="
-            Escribir "   Usuario o contraseña"
+            Escribir "   Usuario o contraseÃ±a"
             Escribir "      incorrectos"
             Escribir "=========================="
 			intentos <- intentos + 1
@@ -43,7 +43,7 @@ Algoritmo PSEUDOCODIGO_EVIDENCIA2
 	
 	Si intentos == 3 y usuario <> usuario1 y clave <> contrasena123  Entonces
 		Escribir ('Usuario Bloqueado. Utilizo 3 intentos')
-		Escribir ('Intentelo de nuevo más tarde')
+		Escribir ('Intentelo de nuevo mÃ¡s tarde')
 	FinSi
 	
 	Si usuario = "usuario1" y clave = "contrasena123"
@@ -59,50 +59,50 @@ Algoritmo PSEUDOCODIGO_EVIDENCIA2
 			Escribir '  3. SERIES'
 			Escribir '  4. JUEGOS'
 			Escribir '  5. MIS LISTAS'
-			Escribir '  6. MIS RESEÑAS'
+			Escribir '  6. MIS RESEÃ‘AS'
 			Escribir '  7. AGREGAR CONTENIDO'
 			Escribir '  8. VER PERFIL'
 			Escribir '  9. SALIR'
 			Escribir "========================"
 			
-			Escribir "Por favor, seleccione una opción: "
+			Escribir "Por favor, seleccione una opciÃ³n: "
 			Leer opcion
 			
-			Según opcion Hacer
+			SegÃºn opcion Hacer
 			
 				1:
 					Escribir 'Anime'
-					// código para la Opción Anime
+					// cÃ³digo para la OpciÃ³n Anime
 				2:
-					Escribir 'Películas'
-					// código para la Opción Películas
+					Escribir 'PelÃ­culas'
+					// cÃ³digo para la OpciÃ³n PelÃ­culas
 				3:
 					Escribir 'Series'
-					// código para la Opción Series
+					// cÃ³digo para la OpciÃ³n Series
 				4:
 					Escribir 'Juegos'
-					// código para la Opción Juegos
+					// cÃ³digo para la OpciÃ³n Juegos
 				5:
 					Escribir 'Listas'
-					// código para la Opción Mis Listas
+					// cÃ³digo para la OpciÃ³n Mis Listas
 				6: 
-					Escribir 'Reseñas'
-					// código para la Opcion Mis Reseñas
+					Escribir 'ReseÃ±as'
+					// cÃ³digo para la Opcion Mis ReseÃ±as
 				7:
 					Escribir 'Gracias por aportar a la Base de Datos de nuestra media traker'
-					// código para la Opción Agegar Contenido
+					// cÃ³digo para la OpciÃ³n Agegar Contenido
 				8:
 					Escribir 'Perfil'
-					// código para la Opción Ver Perfil		
+					// cÃ³digo para la OpciÃ³n Ver Perfil		
 				9:
 					Escribir 'Saliendo del programa...'
-					// código para la Opción Salir
+					// cÃ³digo para la OpciÃ³n Salir
 				De Otro Modo:
-					Escribir "Opción incorrecta. Por favor, elija una opción válida del menú."
+					Escribir "OpciÃ³n incorrecta. Por favor, elija una opciÃ³n vÃ¡lida del menÃº."
 					
-			FinSegún
-			//Esperar unos segundos antes de mostrar el menú nuevamente 
-			//para que el usuario pueda ver el mensaje antes de que el menú se refresque
+			FinSegÃºn
+			//Esperar unos segundos antes de mostrar el menÃº nuevamente 
+			//para que el usuario pueda ver el mensaje antes de que el menÃº se refresque
 			Esperar 2 Segundos
 			
 		Hasta Que opcion = 9
