@@ -173,3 +173,23 @@ ADD FOREIGN KEY (`id_desarrollador`) REFERENCES `desarrollador`(`id_desarrollado
 ALTER TABLE `desarrollador`
 ADD FOREIGN KEY (`id_videojuego`) REFERENCES `videojuego`(`id_videojuego`);
 
+-- Table structure for table reseña
+
+DROP TABLE IF EXISTS reseña;
+CREATE TABLE reseña (
+  id_reseña int primary key not null,
+  fecha int(11) NOT NULL,
+  texto varchar(45) NOT NULL,
+  id_usuario int(11) DEFAULT NULL,
+  PRIMARY KEY (id_reseña),
+  
+);
+-- Table structure for table genero
+
+DROP TABLE IF EXISTS genero;
+CREATE TABLE genero (
+   id_genero  int(11) NOT NULL AUTO_INCREMENT,
+  nombre  varchar(60) NOT NULL,
+  PRIMARY KEY (id_genero)
+);
+
