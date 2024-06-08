@@ -76,6 +76,33 @@ CREATE TABLE `contenido` (
   PRIMARY KEY (`id_contenido`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
+--Table structure for table 'Director'
+
+DROP TABLE IF EXISTS Director;
+CREATE TABLE Director (
+  id_director INT NOT NULL AUTO_INCREMENT,
+  nombre VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id_director)
+);
+
+--Table structure for table 'Estudio de Animación'
+
+DROP TABLE IF EXISTS Estudio_de_Animacion;
+CREATE TABLE Estudio_de_Animacion (
+  id_estudio INT NOT NULL AUTO_INCREMENT,
+  nombre VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id_estudio)
+);
+
+--Table structure for table 'Productora'
+
+DROP TABLE IF EXISTS Productora;
+CREATE TABLE Productora (
+  id_productora INT NOT NULL AUTO_INCREMENT,
+  nombre VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id_productora)
+);
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
