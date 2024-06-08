@@ -1,0 +1,22 @@
+CREATE DATABASE  IF NOT EXISTS `miru` ;
+USE `miru`;
+DROP TABLE IF EXISTS reseña;
+CREATE TABLE reseña (
+  id_reseña int primary key not null,
+  fecha int(11) NOT NULL,
+  texto varchar(45) NOT NULL,
+  id_usuario int(11) DEFAULT NULL,
+  PRIMARY KEY (id_reseña),
+  KEY id_usuario (id_usuario),
+  CONSTRAINT id_usuario FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario) ON UPDATE CASCADE
+);
+-- Table structure for table genero
+
+CREATE DATABASE  IF NOT EXISTS `miru` ;
+USE `miru`;
+DROP TABLE IF EXISTS genero;
+CREATE TABLE genero (
+   id_genero  int(11) NOT NULL AUTO_INCREMENT,
+  nombre  varchar(60) NOT NULL,
+  PRIMARY KEY (id_genero)
+);
