@@ -69,7 +69,7 @@ CREATE TABLE `anime` (
   `capitulos` INT,
   `id_estudio` INT,
   PRIMARY KEY (id_anime),
-  FOREIGN KEY (id_contenido) REFERENCES contenido(id_contenido)
+  FOREIGN KEY (id_contenido) REFERENCES contenido(id_contenido),
   FOREIGN KEY (id_estudio) REFERENCES estudioAnimacion(id_estudio)
 );
 
@@ -85,7 +85,6 @@ CREATE TABLE `videojuego`(
   `id_desarrollador` INT,
   PRIMARY KEY (id_videojuego),
   FOREIGN KEY (id_contenido) REFERENCES contenido(id_contenido)
-  FOREIGN KEY (id_desarrollador) REFERENCES id_desarrollador(id_desarrollador)
 );
 
 --
@@ -125,11 +124,21 @@ CREATE TABLE productora (
 -- Table structure for table 'desarrollador'
 --
 DROP TABLE IF EXISTS desarrollador;
-CREATETABLE desarrollador (
+CREATE TABLE desarrollador (
   `id_desarrollador` INT NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(255)
-  `id_videojuego` INT
+  `nombre` VARCHAR(255),
+  `id_videojuego` INT,
   PRIMARY KEY(id_desarrollador),
-  FOREIGN KEY(id_videojuego) REFERENCES videojuego(id_videojuego)
 );
+
+--
+-- Modificar la tabla videojuego para añadir la clave foránea id_desarrollador
+--
+ALTER TABLE `videojuego`
+ADD FOREIGN KEY (`id_desarrollador`) REFERENCES `desarrollador`(`id_desarrollador`);
+--
+-- Modificar la tabla desarrollador para añadir la clave foránea id_videojuego
+--
+ALTER TABLE `desarrollador`
+ADD FOREIGN KEY (`id_videojuego`) REFERENCES `videojuego`(`id_videojuego`);
 
