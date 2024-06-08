@@ -128,7 +128,38 @@ CREATE TABLE desarrollador (
   `id_desarrollador` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(255),
   `id_videojuego` INT,
-  PRIMARY KEY(id_desarrollador),
+  PRIMARY KEY(id_desarrollador)
+);
+
+--
+-- Table strucre for table 'pelicula'
+--
+
+DROP TABLE IF EXISTS pelicula;
+CREATE TABLE `pelicula` (
+  `id_pelicula` INT NOT NULL AUTO_INCREMENT,
+  `id_contenido` INT,
+  `duracion` INT,
+  `id_director` INT,
+  PRIMARY KEY (id_pelicula),
+  FOREIGN KEY (id_contenido) REFERENCES contenido(id_contenido),
+  FOREIGN KEY (id_director) REFERENCES director(id_director)
+);
+
+--
+-- Table strucre for table 'serie'
+--
+
+DROP TABLE IF EXISTS serie;
+CREATE TABLE `serie` (
+  `id_serie` INT NOT NULL AUTO_INCREMENT,
+  `titulo` VARCHAR(255),
+  `id_contenido` INT,
+  `temporadas` INT,
+  `id_director` INT,
+  PRIMARY KEY (id_serie),
+  FOREIGN KEY (id_contenido) REFERENCES contenido(id_contenido),
+  FOREIGN KEY (id_director) REFERENCES director(id_director)
 );
 
 --
