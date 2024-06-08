@@ -55,6 +55,27 @@ CREATE TABLE `usuario` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
+-- Table structure for table 'lista'
+
+DROP TABLE IF EXISTS `lista`;
+CREATE TABLE `lista` (
+  `id_lista` INT(11) NOT NULL AUTO_INCREMENT,
+  `fecha_creacion` DATE NOT NULL,
+  `id_usuario` INT(11) NOT NULL,
+  PRIMARY KEY (`id_lista`),
+  FOREIGN KEY (`id_usuario`) REFERENCES `USUARIO` (`id_usuario`) ON UPDATE CASCADE ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+--Table structure for table 'contenido'
+
+DROP TABLE IF EXISTS `contenido`;
+CREATE TABLE `contenido` (
+  `id_contenido` INT(11) NOT NULL AUTO_INCREMENT,
+  `titulo` VARCHAR(255) NOT NULL,
+  `año_lanzamiento` YEAR NOT NULL,
+  PRIMARY KEY (`id_contenido`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
