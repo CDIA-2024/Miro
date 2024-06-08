@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `miru` ;
-USE `miru`;
 DROP TABLE IF EXISTS reseña;
 CREATE TABLE reseña (
   id_reseña int primary key not null,
@@ -12,8 +10,6 @@ CREATE TABLE reseña (
 );
 -- Table structure for table genero
 
-CREATE DATABASE  IF NOT EXISTS `miru` ;
-USE `miru`;
 DROP TABLE IF EXISTS genero;
 CREATE TABLE genero (
    id_genero  int(11) NOT NULL AUTO_INCREMENT,
