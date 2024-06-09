@@ -1,9 +1,28 @@
 #index.py
 import time
-from opciones import modulo_anime, modulo_peliculas, modulo_series, modulo_juegos, modulo_lista, modulo_reseñas, modulo_agregar_contenido, modulo_perfil
+from opciones import (modulo_anime, 
+                     modulo_peliculas,
+                     modulo_series,
+                     modulo_juegos, 
+                     modulo_lista, 
+                     modulo_reseñas,                
+                     modulo_agregar_contenido,                                              
+                     modulo_perfil,
+                     config)
+
 
 def limpiar_pantalla():
     print("\033[H\033[J", end="")
+
+def mensaje_formateado(mensaje=None, color=None, estilo=None, caracter=None):
+    mensaje_formateado = ""
+    if mensaje is not None:
+        mensaje_formateado += f"{color}{(estilo if estilo is not None else '')}{mensaje}{config.colores.RESET}"
+    if caracter is not None:
+        mensaje_formateado += f"{color}{(estilo if estilo is not None else '')}{caracter}{config.colores.RESET}"
+
+    print(mensaje_formateado)
+
 
 def login():
     intentos = 0
@@ -11,32 +30,32 @@ def login():
 
     while intentos <= 3:
         limpiar_pantalla ()
-        print ("===============================")
-        print ("      Usuario o contraseña     ")
-        print ("          incorrectos          ")
-        print ("===============================")
+        mensaje_formateado(config.caracteres_especiales.GUION, config.colores.ROJO)
+        mensaje_formateado("      Usuario o contraseña     ", config.colores.ROJO, config.colores.NEGRITA)
+        mensaje_formateado("          incorrectos          ", config.colores.ROJO, config.colores.NEGRITA)
+        mensaje_formateado(config.caracteres_especiales.GUION, config.colores.ROJO)
 
-        usuario = input("Usuario: ")
-        clave = input("contraseña:")
-
+        usuario = input(mensaje_formateado("Usuario: ", config.colores.CYAN, config.colores.NEGRITA))
+        clave = input(mensaje_formateado("contraseña: ", config.colores.CYAN, config.colores.NEGRITA))
+        
         if validar_usuario(usuario, clave):
             limpiar_pantalla()
-            print ("===============================")
-            print ("        Inicio de sesión       ")
-            print ("            exitoso            ")
-            print ("===============================")
+            mensaje_formateado(config.caracteres_especiales.GUION, config.colores.VERDE)
+            mensaje_formateado("        Inicio de sesión       ", config.colores.VERDE, config.colores.NEGRITA)
+            mensaje_formateado("            exitoso            ", config.colores.VERDE, config.colores.NEGRITA)
+            mensaje_formateado(config.caracteres_especiales.GUION, config.colores.VERDE)
             time.sleep(2)
             sesion_iniciada = True
             break
         else: 
             limpiar_pantalla ()
-        print ("===============================")
-        print ("      Usuario o contraseña     ")
-        print ("          incorrectos          ")
-        print ("===============================")
-        intentos += 1
-        print(f"intentos restantes: {3 - intentos}")
-        time.sleep(2)
+            mensaje_formateado(config.caracteres_especiales.GUION, config.colores.ROJO)
+            mensaje_formateado("      Usuario o contraseña     ", config.colores.ROJO, config.colores.NEGRITA)
+            mensaje_formateado("          incorrectos          ", config.colores.ROJO, config.colores.NEGRITA)
+            mensaje_formateado(config.caracteres_especiales.GUION, config.colores.ROJO)
+            intentos += 1
+            print(f"intentos restantes: {3 - intentos}")
+            time.sleep(2)
 
         opcion_intentar = 0
 
@@ -45,13 +64,13 @@ def login():
                 break
 
         if not sesion_iniciada and intentos >= 3:
-            print("No se pudo iniciar sesión")
-            opcion_registro = input("¿Desea Registrarse? S/N") 
+            mensaje_formateado("No se pudo iniciar sesión", config.colores.AMARILLO)
+            opcion_registro = input(mensaje_formateado("¿Desea Registrarse? S/N", config.colores.NEGRITA)) 
             if opcion_registro.lower() == "s":
                 registrar_usuario()
             else:
-                print("Usuario Bloqueado, ha utilizado más de 3 intentos")
-                print("Intentelo de nuevo más tarde")
+                mensaje_formateado("Usuario Bloqueado, ha utilizado más de 3 intentos", config.colores.ROJO)
+                mensaje_formateado("Intentelo de nuevo más tarde", config.colores.NEGRITA)
                 time.sleep(2)
         return sesion_iniciada
     
@@ -60,9 +79,9 @@ def menu_principal():
 
     while opcion != 9:
         limpiar_pantalla()
-        print ("===============================")
-        print ("         Menú Principal        ")
-        print ("===============================")
+        mensaje_formateado(config.caracteres_especiales.GUION, config.colores.MENTA)
+        mensaje_formateado("         Menú Principal        ", config.colores.ROSA_CLARO config.colores.NEGRITA)
+        mensaje_formateado(config.caracteres_especiales.GUION, config.colores.MENTA)
         print(" 1. Anime")
         print(" 2. Películas")
         print(" 3. Series")
@@ -72,7 +91,7 @@ def menu_principal():
         print(" 7. Agregar Contenido")
         print(" 8. Ver Perfil")
         print(" 9. Salir")
-        print ("===============================")
+        mensaje_formateado(config.caracteres_especiales.GUION, config.colores.MENTA)
 
         opcion = int(input("Por favor, seleccione una opción "))
 
@@ -85,9 +104,9 @@ def menu_principal():
         if opcion == 4:
                 modulo_juegos.opcion_juegos()
         if opcion == 5:
-                modulo_listas.opcion_listas()
+                modulo_lista.opcion_listas()
         if opcion == 6:
-                modulo_resena.opcion_resena()
+                modulo_reseñas.opcion_resena()
         if opcion == 7:
                 modulo_agregar_contenido.opcion_agregar_contenido()
         if opcion == 8:
@@ -103,15 +122,15 @@ if __name__ == "__main__":
  
     while True:
         limpiar_pantalla()
-        print ("===============================")
-        print ("         BIENVENIDO       ")
-        print ("===============================")
+        mensaje_formateado(config.caracteres_especiales.GUION, config.colores.CYAN)
+        mensaje_formateado("          BIENVENIDO           ", config.colores.ROSA_CLARO, config.colores.NEGRITA)
+        mensaje_formateado(config.caracteres_especiales.GUION, config.colores.CYAN)
         print(" 1. Iniciar sesión")
         print(" 2. Registrarse")
         print(" 3. Salir")
-        print ("===============================")
+        mensaje_formateado(config.caracteres_especiales.GUION, config.colores.CYAN)
 
-        opcion_inicio = int(input("Seleccione una opción"))
+        opcion_inicio = int(input("Seleccione una opción: "))
 
         if opcion_inicio == 1:
             if login():
@@ -121,10 +140,11 @@ if __name__ == "__main__":
         elif opcion_inicio == 2:
             registrar_usuario()
         elif opcion_inicio == 3:
-            print("Saliendo del Programa...")
+            print("Gracias por usar Miru ♡")
+            mensaje_formateado("Saliendo del Programa...", config.colores.LIMA)
             break
         else:
-            print("Opción inválida, por favor seleccione una opción del menú")
+            print("Opción inválida, por favor seleccione una opción del menú ")
         
     time.sleep(2)
 
