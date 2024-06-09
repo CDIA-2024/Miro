@@ -1,8 +1,6 @@
 #index.py
 import time
-from opciones import modulo_anime, modulo_peliculas, modulo_series, modulo_juegos, modulo_listas, modulo_listas, modulo_resena, modulo_agregar_contenido, modulo_perfil
-
-from opciones.user_database import usuarios, registrar_usuario, validar_usuario
+from opciones import modulo_anime, modulo_peliculas, modulo_series, modulo_juegos, modulo_lista, modulo_reseñas, modulo_agregar_contenido, modulo_perfil
 
 def limpiar_pantalla():
     print("\033[H\033[J", end="")
