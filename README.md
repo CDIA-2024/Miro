@@ -114,7 +114,7 @@ Almacenamiento de usuarios y claves (para el ejemplo, están almacenados 3 usuar
  - En caso contrario, devuelve False
 
 ## Módulo de configuraciones
-   ### `config .py`
+   ### `config.py`
    Archivo de configuración que define parámetros estéticos y otras configuraciones globales de la aplicación.
 **clase colores**
 Mediante secuencias de escape, formatean le el código para que, en la consola se muestre un texto a color,  y caracteres especiales
