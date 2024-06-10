@@ -33,7 +33,7 @@ Importa módulos específicos para manejar las distintas opciones del menú prin
 Importa las funciones para registrar y validar usuarios, así como el diccionario que simula una base de datos de usuarios.
 **config**
 Importa las configuraciones globales, como colores y caracteres especiales.
-### ***Funciones**
+### **Funciones**
 **limpia_pantalla()**
 Limpia la pantalla de la consola
 **mensaje_formateado(mensaje=None, color=None, estilo=None, caracter=None)**
