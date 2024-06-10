@@ -28,7 +28,7 @@ Este archivo es el punto de entrada principal de Miru. Aquí se maneja la lógic
 
 ### ***Importaciones***
 **opciones**
-Importa módulos específicos para manejar las distintas opciones del menú principal ( anime, series, películas, juegos, lista, reseñas, agregar contenido y perfil)
+Importa módulos específicos para manejar las distintas opciones del menú principal (anime, series, películas, juegos, lista, reseñas, agregar contenido y perfil)
 **modulo_user_data**
 Importa las funciones para registrar y validar usuarios, así como el diccionario que simula una base de datos de usuarios.
 **config**
@@ -47,7 +47,7 @@ Si el usuario no puede iniciar sesión, le da la opción de registrarse.
 Muestra el menú principal y controla la navegación entre las opciones del menú.
 Cada opción llama a la función principal del módulo correspondiente.
 ### Flujo Principal
-Se ejecuta dentro del bloque if _ _name__ == "_ _main__", de la siguiente manera:
+Se ejecuta dentro del bloque `if__name__ == "__main__"`, de la siguiente manera:
 
  1. Menú de Bienvenida
 	 Ofrece 3 opciones: 
