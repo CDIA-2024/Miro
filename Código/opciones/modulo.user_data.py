@@ -1,6 +1,6 @@
 # se crea diccionario de Usuario:
 
-usuarios = {}
+usuarios = {"cesia": "123", "yesica":"123", "maxi":"123"}
 
 # se crea la funcion para registrar un usuario
 
