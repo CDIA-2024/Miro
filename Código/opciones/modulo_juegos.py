@@ -1,4 +1,4 @@
 #Funcion Opcion Video Juegos
 
-def opcion_juegos():
+def main_menu():
     print("Bienvenidos a la sección de Videos Juegos.")

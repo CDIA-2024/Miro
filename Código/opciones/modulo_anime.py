@@ -1,7 +1,7 @@
 
 
 
-def opcion_elegida():
+def main_menu():
     print("¡Bienvenidos a la sección Anime!")
     
 # llamamos a la funcion

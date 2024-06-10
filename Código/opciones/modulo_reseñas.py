@@ -1,4 +1,4 @@
-def agregar_reseñas():
+def main_menu():
     print("¡Cuentanos tu oponion!")
 
 #agregar_reseñas()

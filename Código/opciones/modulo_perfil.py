@@ -1,4 +1,4 @@
 #Funcion Opcion Perfil
 
-def opcion_perfil():
+def main_menu():
     print("Bienvenido al Perfil del Usuario.")

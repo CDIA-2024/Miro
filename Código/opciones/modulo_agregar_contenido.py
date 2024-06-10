@@ -1,4 +1,4 @@
-def opcion_agregar_contenido():
+def main_menu():
     print("¡Bienvenido!" " en esta seccion podras agregar nuevas recomendaciones")
 
 #opcion_agregar_contenido()
