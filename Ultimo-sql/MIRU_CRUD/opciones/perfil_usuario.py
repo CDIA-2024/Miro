@@ -26,7 +26,7 @@ def mostrar_perfil(user_id):
         nombre, correo, cumpleanos = perfil
         print(f"Nombre de usuario: {nombre}")
         print(f"correo: {correo}")
-        print(f"Cumpleaños: {cumpleanos}")
+        print(f"Año_de_nacimiento: {Año de Nacimiento}")
     else:
         print("Usuario no encontrado.")
 ## se define la funcion para mostrar listas guardadas,debe 
