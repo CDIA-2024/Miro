@@ -1,7 +1,7 @@
 #index.py
 import time
-from opciones import (config, anime, peliculas, videojuego, series)
-from opciones.config import registrar_usuario, validar_usuario
+from opciones import (config, anime, peliculas, videojuego, series, reseñass)
+from opciones.config import registrar_usuario, validar_usuario, obtener_id_usuario
 import time
 
 def limpiar_pantalla():
@@ -17,8 +17,8 @@ def mensaje_formateado(mensaje=None, color=None, estilo=None, caracter=None):
 
 def login():
     intentos = 0
-    sesion_iniciada = False
-    usuario_id = None
+    usuario_validado = None
+    user_id = None
 
     while intentos < 3:
         limpiar_pantalla()
@@ -29,16 +29,16 @@ def login():
         correo = input(mensaje_formateado("Correo: ", config.colores.CYAN, config.colores.NEGRITA))
         contrasena = input(mensaje_formateado("Contraseña: ", config.colores.CYAN, config.colores.NEGRITA))
         
-        usuario_id = validar_usuario(correo, contrasena)
-        if usuario_id:
+        usuario_validado = validar_usuario(correo, contrasena)
+        user_id = obtener_id_usuario(correo)
+        if usuario_validado:
             limpiar_pantalla()
             print(mensaje_formateado(config.caracteres_especiales.GUION, config.colores.VERDE))
             print(mensaje_formateado("        Inicio de Sesión       ", config.colores.VERDE, config.colores.NEGRITA))
             print(mensaje_formateado("            Exitoso            ", config.colores.VERDE, config.colores.NEGRITA))
-            print(mensaje_formateado(config.caracteres_especiales.GUION, config.colores.VERDE))
+            print(mensaje_formateado(config.caracteres_especiales.GUION, config.colores.VERDE))           
             time.sleep(2)
-            sesion_iniciada = True
-            break
+            return usuario_validado, user_id
         else:
             limpiar_pantalla()
             print(mensaje_formateado(config.caracteres_especiales.GUION, config.colores.ROJO))
@@ -54,7 +54,7 @@ def login():
                     print(mensaje_formateado("Saliendo del Programa...", config.colores.LIMA))
                     break
 
-    if not sesion_iniciada and intentos >= 3:
+    if intentos >= 3:
         print(mensaje_formateado("No se pudo iniciar sesión", config.colores.AMARILLO))
         opcion_registro = input(mensaje_formateado("¿Desea Registrarse? S/N ", config.colores.NEGRITA)) 
         if opcion_registro.lower() == "s":
@@ -72,15 +72,16 @@ def login():
             suscripcion = input(mensaje_formateado("Suscripción: ", config.colores.CYAN, config.colores.NEGRITA))
             if registrar_usuario(nombre, correo, contrasena, año_nacimiento, edad, genero_de_interes, suscripcion):
                 print(mensaje_formateado("Usuario registrado con éxito. Por favor inicie sesión.", config.colores.VERDE))
+                return login()  # Intentar iniciar sesión automáticamente después de registrar
             else:
                 print(mensaje_formateado("Error al registrar el usuario.", config.colores.ROJO))
         else:
             print(mensaje_formateado("Usuario Bloqueado, ha utilizado más de 3 intentos", config.colores.ROJO))
             print(mensaje_formateado("Intentelo de nuevo más tarde", config.colores.NEGRITA))
             time.sleep(2)
-    return usuario_id
+            return None, None
 
-def menu_principal(usuario_id):
+def menu_principal(usuario_validado, user_id):
     opcion = 0
 
     while opcion != 9:
@@ -175,6 +176,7 @@ def menu_principal(usuario_id):
             # Llamar al menú de listas
             pass
         elif opcion == 6:
+            reseñass.agregar_reseña(user_id)
             # Llamar al menú de reseñas
             pass
         elif opcion == 7:
@@ -204,9 +206,10 @@ if __name__ == "__main__":
         opcion_inicio = int(input("Seleccione una opción: "))
 
         if opcion_inicio == 1:
-            usuario_id = login()
-            if usuario_id:
-                menu_principal(usuario_id)
+            usuario_validado = login()
+            user_id = 1
+            if usuario_validado:
+                menu_principal(usuario_validado, user_id)
             else:
                 break
         elif opcion_inicio == 2:
