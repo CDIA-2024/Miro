@@ -1,6 +1,6 @@
 #index.py
 import time
-from opciones import (config, anime, peliculas, videojuego, series)
+from opciones import (config, anime, peliculas, videojuego, series, agregar_contenido, lista)
 from opciones.config import registrar_usuario, validar_usuario
 import time
 
@@ -173,13 +173,24 @@ def menu_principal(usuario_id):
                 pass
         elif opcion == 5:
             # Llamar al menú de listas
-            pass
+            print(mensaje_formateado(config.caracteres_especiales.GUION, config.colores.PURPURA))
+            print(" 1. Mis Listas")     
+            print(" 2. Listas de otros Usuarios")  
+            print(" 3. Crear Lista")
+            print(mensaje_formateado(config.caracteres_especiales.GUION, config.colores.PURPURA))
+            opt_menu = int(input("Seleccione una acción: "))
+            if opt_menu == 1:
+                pass
+            elif opt_menu == 2:
+                pass
+            elif opt_menu ==3:
+                lista.crearLista()
         elif opcion == 6:
             # Llamar al menú de reseñas
             pass
         elif opcion == 7:
-            # Llamar al menú de agregar contenido
-            pass
+            #Llamar al menú de agregar contenido
+            agregar_contenido.main_menu() 
         elif opcion == 8:
             # Llamar al menú de perfil
             pass

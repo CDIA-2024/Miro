@@ -6,9 +6,9 @@ def create_connection():
     try:
         connection = mysql.connector.connect(
             host='localhost',
-            database='miru_1.1.1',
+            database='miru',
             user='root',
-            password='CIK:830_'
+            password='maxi'
         )
         return connection
     except Error as e:
