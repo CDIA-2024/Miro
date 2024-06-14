@@ -29,11 +29,12 @@ def close_connection(connection):
 
 # BLOQUE PARA LA VERIFICACIÓN Y REGISTRO DE USUARIO
 
+# Función para validar el usuario y obtener su información
 def validar_usuario(correo, contrasena):
     try:
         conn = create_connection()
         if conn is None:
-            return False
+            return None
         
         cursor = conn.cursor(dictionary=True)
 
@@ -42,11 +43,12 @@ def validar_usuario(correo, contrasena):
         usuario = cursor.fetchone()
 
         conn.close()
-        return usuario is not None
+        return usuario  # Devuelve el usuario encontrado o None si no se encontró
+
     except Error as e:
         print(f"Error al validar el usuario: {e}")
-        return False
-
+        return None
+    
 def registrar_usuario(nombre, correo, contrasena, año_nacimiento, edad, genero_de_interes=None, suscripcion=None):
     try:
         conn = create_connection()
@@ -75,27 +77,23 @@ def registrar_usuario(nombre, correo, contrasena, año_nacimiento, edad, genero_
         print(f"Error al registrar el usuario: {e}")
         return False
 
-# Función para obtener el ID de usuario
-def get_user_id(correo):
+# FUNCIÓN PARA OBTENER EL ID DEL USUARIO
+def obtener_id_usuario(correo):
     try:
-        connection = mysql.connector.connect(
-            host='localhost',
-            database='miru_1.1.1',
-            user='root',
-            password='CIK:830_'
-        )
-        cursor = connection.cursor()
+        conn = create_connection()
+        if conn is None:
+            return None
+        
+        cursor = conn.cursor()
         query = "SELECT id_usuario FROM usuario WHERE correo = %s"
         cursor.execute(query, (correo,))
-        result = cursor.fetchone()
-        return result[0] if result else None
-    except Error as e:
-        print(f"Error al obtener el ID del usuario: {e}")
-        return None
-    finally:
-        cursor.close()
-        connection.close()
+        user_id = cursor.fetchone()
         
+        conn.close()
+    except Error as e:
+        print(f"Error al obtener el ID de usuario: {e}")
+        return None      
+       
 #BLOQUES PARA CON CLASES PARA CONFIGURACIÓN ESTÉTICA DEL PROGRAMA
 
 # Configuración para colores y estilos
@@ -126,3 +124,4 @@ class caracteres_especiales:
     FLECHA = '➤'
     TILDE = '✔'
     CRUZ = '✘'
+
