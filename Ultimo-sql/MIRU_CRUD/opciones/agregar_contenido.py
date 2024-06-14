@@ -21,7 +21,7 @@ def main_menu():
             ti = input("Ingrese el titulo del contenido a agregar: ")
             cursor.execute('SELECT * FROM contenido WHERE titulo = %s', (ti,))
             titulos = cursor.fetchall()
-            if titulos != []:
+            if titulos:
                 opc = 0
                 print("El Titulo que desea agregar ya existe!")
                 for fila in titulos:

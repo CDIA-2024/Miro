@@ -85,11 +85,11 @@ def obtener_id_usuario(correo):
             return None
         
         cursor = conn.cursor()
-        query = "SELECT id_usuario FROM usuario WHERE correo = %s"
+        query = "SELECT * FROM usuario WHERE correo = %s"
         cursor.execute(query, (correo,))
         user_id = cursor.fetchone()
-        
         conn.close()
+        return user_id
     except Error as e:
         print(f"Error al obtener el ID de usuario: {e}")
         return None      
@@ -124,4 +124,3 @@ class caracteres_especiales:
     FLECHA = '➤'
     TILDE = '✔'
     CRUZ = '✘'
-
