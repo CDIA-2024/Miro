@@ -20,13 +20,13 @@ def create_connection():
 # se debe asociar a lastablas reseñas
 
 def mostrar_perfil(user_id):
-    cursor.execute("SELECT nombre, correo, cumpleanos FROM usuarios WHERE id = ?", (user_id,))
+    cursor.execute("SELECT nombre, correo,año_nacimiento FROM usuarios WHERE id = ?", (user_id,))
     perfil = cursor.fetchone()
     if perfil:
         nombre, correo, cumpleanos = perfil
         print(f"Nombre de usuario: {nombre}")
         print(f"correo: {correo}")
-        print(f"Año_de_nacimiento: {Año de Nacimiento}")
+        print(f"año_nacimiento: {año_nacimiento}")
     else:
         print("Usuario no encontrado.")
 ## se define la funcion para mostrar listas guardadas,debe 
