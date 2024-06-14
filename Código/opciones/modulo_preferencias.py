@@ -1,11 +1,20 @@
-# primero deberemos realizar la conexxion con la base de datos
-#Python
+import mysql.connector
+from mysql.connector import Error
 
-#import sqlite3
+# Función para crear conexión a la base de datos
+def create_connection():
+    try:
+        connection = mysql.connector.connect(
+            host='localhost',
+            database='miru_1.1.1',
+            user='root',
+            password='CIK:830_'
+        )
+        return connection
+    except Error as e:
+        print(f"Error al conectar a la base de datos: {e}")
+        return None
 
-# Conexión a la base de datos (crea un archivo si no existe)
-#conn = sqlite3.connect("user_preferences.db")
-#cursor = conn.cursor()
 
 # Crear tabla de preferencias.
 #CREATE TABLE IF NOT EXISTS preferencias_usuario()
