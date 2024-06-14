@@ -19,21 +19,21 @@ def create_connection():
 # se debe asociar a la tabla de listas de preferencia
 # se debe asociar a lastablas reseñas
 
-def mostrar_perfil(usuario_id):
-    cursor.execute("SELECT nombre, email, cumpleanos FROM usuarios WHERE id = ?", (usuario_id,))
+def mostrar_perfil(user_id):
+    cursor.execute("SELECT nombre, correo, cumpleanos FROM usuarios WHERE id = ?", (user_id,))
     perfil = cursor.fetchone()
     if perfil:
         nombre, correo, cumpleanos = perfil
         print(f"Nombre de usuario: {nombre}")
-        print(f"email: {correo}")
+        print(f"correo: {correo}")
         print(f"Cumpleaños: {cumpleanos}")
     else:
         print("Usuario no encontrado.")
 ## se define la funcion para mostrar listas guardadas,debe 
 # estar conectado a la base de datos de la lista de preferencia
 
-def mostrar_listas(usuario_id):
-    cursor.execute("SELECT nombre FROM listas WHERE usuario_id = ?", (usuario_id,))
+def mostrar_listas(user_id):
+    cursor.execute("SELECT nombre FROM listas WHERE user_id = ?", (user_id,))
     listas = cursor.fetchall()
     if listas:
         print("Listas guardadas:")
@@ -46,14 +46,14 @@ def mostrar_listas(usuario_id):
 #se debe conectar con la tabla base de datos  de reseñas, revisar los argumentos
 # en el codigo uso UNION  ALL : para combinar las reseñas de peliculas,juegos,animes
 
-def mostrar_resenas(usuario_id):
+def mostrar_resenas(user_id):
     cursor.execute("""
-        SELECT pelicula, calificacion FROM resenas WHERE usuario_id = ?
+        SELECT pelicula, calificacion FROM resenas WHERE user_id = ?
         UNION ALL
-        SELECT anime, calificacion FROM resenas_anime WHERE usuario_id = ?
+        SELECT anime, calificacion FROM resenas_anime WHERE user_id= ?
         UNION ALL
-        SELECT juego, calificacion FROM resenas_juego WHERE usuario_id = ?
-    """, (usuario_id, usuario_id, usuario_id))
+        SELECT juego, calificacion FROM resenas_juego WHERE user_id = ?
+    """, (user_id, user_id,user_id))
     resenas = cursor.fetchall()
     if resenas:
         print("Reseñas:")
@@ -62,9 +62,7 @@ def mostrar_resenas(usuario_id):
     else:
         print("No se encontraron reseñas para este usuario.")
 
-# Supongamos que ya tienes el ID del usuario (por ejemplo, 1)
-usuario_id_existente = 1
-mostrar_resenas(usuario_id_existente)
+
 
 
 
