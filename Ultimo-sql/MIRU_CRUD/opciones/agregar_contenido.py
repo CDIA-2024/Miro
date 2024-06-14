@@ -1,5 +1,5 @@
 import mysql.connector
-from opciones import (anime, peliculas, videojuego, series)
+from opciones import (anime, peliculas, videojuego, series, lista)
 
 def main_menu():
     
@@ -26,7 +26,7 @@ def main_menu():
                 print("El Titulo que desea agregar ya existe!")
                 for fila in titulos:
                     print(f"ID: {fila[0]}, Título: {fila[1]}, Año: {fila[2]}")
-                while opc < 4 or opc >5:
+                while opc !=4:
                     submenu2()
                     opc = int(input("Elija una opción: "))
 
@@ -35,10 +35,8 @@ def main_menu():
                     elif opc == 2:
                         pass
                     elif opc == 3:
-                        pass
+                        opc = 4
                     elif opc == 4:
-                        pass
-                    elif opc == 5:
                         volver()
                         op = 5
                     else:
@@ -72,9 +70,8 @@ def submenu2():
     print("¿Que desea hacer ahora?")
     print(" 1. Agregar a una lista")
     print(" 2. Reseñar contenido")
-    print(" 3. Registrar estado")
-    print(" 4. Sugerir otro contenido")
-    print(" 5. Volver al Menu Principal")
+    print(" 3. Sugerir otro contenido")
+    print(" 4. Volver al Menu Principal")
 #opcion_agregar_contenido()
 # en esta seccion se podra agregar elementos a la lista ya formada.
 #para eso se le debera dar un argumento a la funcion.
