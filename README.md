@@ -1,3 +1,5 @@
+#### LINK AL REPO DEL PROYECTO FINAL: https://github.com/CDIA-2024/Miru-aplicacion-de-seguimiento-multimedia
+Para tener una presentación más limpia, hemos decidido crear un nuevo repositorio con los archivos finales para la última entrega.
 # MIRU
 
 ## **Descripción General**
